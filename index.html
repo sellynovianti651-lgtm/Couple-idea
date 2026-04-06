@@ -260,17 +260,17 @@ setTimeout(()=>{
 if(type=="date"){
 content.innerHTML=`
 <div class="card reveal">
-<img src="picnic.jpg">
+<img src="picnicdate.jpeg">
 <div class="overlay">Picnic Date</div>
 </div>
 
 <div class="card reveal">
-<img src="beach.jpg">
+<img src="beachdate.jpeg">
 <div class="overlay">Beach Date</div>
 </div>
 
 <div class="card reveal">
-<img src="dinner.jpg">
+<img src="romanticdinner.jpeg">
 <div class="overlay">Romantic Dinner</div>
 </div>
 `;
@@ -279,17 +279,17 @@ content.innerHTML=`
 if(type=="gift"){
 content.innerHTML=`
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+<img src="scrapbookorscarpframe.jpg">
 <div class="overlay">Scrapbook</div>
 </div>
 
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<img src="watch.jpg">
 <div class="overlay">Watch</div>
 </div>
 
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0">
+<img src="jewelry.jpg">
 <div class="overlay">Jewelry</div>
 </div>
 `;
@@ -298,17 +298,17 @@ content.innerHTML=`
 if(type=="surprise"){
 content.innerHTML=`
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<img src="scavengerhunt.jpg">
 <div class="overlay">Scavenger Hunt</div>
 </div>
 
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<img src="stargazingtrip.jpg">
 <div class="overlay">Stargazing Trip</div>
 </div>
 
 <div class="card reveal">
-<img src="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2">
+<img src="recreatefirstdate.jpg">
 <div class="overlay">Recreate First Date</div>
 </div>
 `;
@@ -326,16 +326,41 @@ function generate(){
 
 let budget=document.getElementById("budget").value;
 
-let idea="Romantic Dinner or Picnic Date 💖";
+let idea="";
 
-document.getElementById("result").innerText=
-"Recommended: "+idea+" ("+budget+")";
+if(budget=="Rp100k - Rp300k"){
+idea = 
+"• Picnic Date 🌿\n" +
+"• Coffee Date ☕\n" +
+"• Movie Night 🎬\n" +
+"• Arcade Date 🎮\n" +
+"• Simple Romantic Dinner 🍝";
+}
+else{
+idea = 
+"• Fine Dining Dinner 🍷\n" +
+"• Beach Sunset Date 🌅\n" +
+"• Staycation 🏨\n" +
+"• Stargazing Trip 🌌\n" +
+"• Couple Workshop 🍰";
+}
+
+document.getElementById("result").innerText =
+"Recommended Ideas:\n" + idea;
 
 let message =
-"Halo Couple Goals! 💖\n\n" +
-"Saya ingin konsultasi.\n\n" +
-"Budget: "+budget+"\n" +
-"Rekomendasi: "+idea;
+"Halo Couple Goals 💖\n\n" +
+"Saya tertarik menggunakan layanan Couple Goals.\n\n" +
+
+"Berikut preferensi saya:\n" +
+"• Budget: "+budget+"\n\n" +
+
+"Saya tertarik dengan beberapa ide berikut:\n" +
+idea + "\n\n" +
+
+"Saya ingin mendapatkan rekomendasi yang lebih personal dan sesuai dengan pasangan saya.\n\n" +
+
+"Terima kasih ✨";
 
 let phone="6289524070718";
 
