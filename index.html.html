@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Couple Goals</title>
+
+<style>
+
+/* BASE */
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:#ffffff;
+color:#333;
+scroll-behavior:smooth;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 50px;
+border-bottom:1px solid #eee;
+}
+
+nav h2{
+color:#c9184a;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#555;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(to bottom,#fff0f3,#ffffff);
+}
+
+/* SECTION */
+section{
+padding:70px 50px;
+text-align:center;
+}
+
+h2{
+color:#c9184a;
+}
+
+/* BUTTON */
+.service-btns{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.service-btns button{
+padding:10px 20px;
+border-radius:20px;
+border:none;
+background:#c9184a;
+color:white;
+cursor:pointer;
+}
+
+/* GRID */
+.grid{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+opacity:0;
+transition:0.5s;
+}
+
+.grid.show{
+opacity:1;
+}
+
+/* CARD */
+.card{
+width:230px;
+border-radius:15px;
+overflow:hidden;
+position:relative;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* OVERLAY */
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:10px;
+background:rgba(0,0,0,0.4);
+color:white;
+}
+
+/* QUIZ */
+.quiz{
+max-width:400px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+select{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+.main-btn{
+background:#c9184a;
+color:white;
+padding:12px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+width:100%;
+}
+
+.result{
+margin-top:15px;
+font-weight:bold;
+color:#c9184a;
+}
+
+/* WA */
+.wa-btn{
+display:none;
+margin-top:15px;
+background:#25D366;
+padding:12px;
+border-radius:25px;
+color:white;
+text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+background:#c9184a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s cubic-bezier(0.25,1,0.5,1);
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Couple Goals</h2>
+<div>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#quiz">Find Idea</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero reveal">
+<h1>Couple Goals</h1>
+<p>Crafting meaningful moments, effortlessly.</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+<h2>About Us</h2>
+<p>
+Couple Goals helps couples create unforgettable moments through curated ideas, thoughtful gifts, and meaningful surprises.
+</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="reveal">
+<h2>Our Services</h2>
+
+<div class="service-btns">
+<button onclick="show('date')">Date Ideas</button>
+<button onclick="show('gift')">Gift Ideas</button>
+<button onclick="show('surprise')">Surprise Ideas</button>
+</div>
+
+<div class="grid" id="content"></div>
+
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="reveal">
+<h2>Find Your Perfect Date</h2>
+
+<div class="quiz">
+
+<select id="budget">
+<option>Rp100k - Rp300k</option>
+<option>> Rp300k</option>
+</select>
+
+<button class="main-btn" onclick="generate()">Get Recommendation</button>
+
+<div class="result" id="result"></div>
+
+<a id="waLink" class="wa-btn" target="_blank">
+Consult via WhatsApp
+</a>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Couple Goals</p>
+</footer>
+
+<script>
+
+/* SERVICE SWITCH */
+function show(type){
+
+let content=document.getElementById("content");
+content.classList.remove("show");
+
+setTimeout(()=>{
+
+if(type=="date"){
+content.innerHTML=`
+<div class="card reveal">
+<img src="picnic.jpg">
+<div class="overlay">Picnic Date</div>
+</div>
+
+<div class="card reveal">
+<img src="beach.jpg">
+<div class="overlay">Beach Date</div>
+</div>
+
+<div class="card reveal">
+<img src="dinner.jpg">
+<div class="overlay">Romantic Dinner</div>
+</div>
+`;
+}
+
+if(type=="gift"){
+content.innerHTML=`
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+<div class="overlay">Scrapbook</div>
+</div>
+
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<div class="overlay">Watch</div>
+</div>
+
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0">
+<div class="overlay">Jewelry</div>
+</div>
+`;
+}
+
+if(type=="surprise"){
+content.innerHTML=`
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<div class="overlay">Scavenger Hunt</div>
+</div>
+
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<div class="overlay">Stargazing Trip</div>
+</div>
+
+<div class="card reveal">
+<img src="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2">
+<div class="overlay">Recreate First Date</div>
+</div>
+`;
+}
+
+content.classList.add("show");
+
+reveal(); // trigger animation
+
+},200);
+}
+
+/* QUIZ + WA */
+function generate(){
+
+let budget=document.getElementById("budget").value;
+
+let idea="Romantic Dinner or Picnic Date 💖";
+
+document.getElementById("result").innerText=
+"Recommended: "+idea+" ("+budget+")";
+
+let message =
+"Halo Couple Goals! 💖\n\n" +
+"Saya ingin konsultasi.\n\n" +
+"Budget: "+budget+"\n" +
+"Rekomendasi: "+idea;
+
+let phone="628xxxxxxxxxx";
+
+let link="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+
+let wa=document.getElementById("waLink");
+wa.href=link;
+wa.style.display="block";
+
+}
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+let reveals=document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+let elementVisible=100;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+}
+}
+
+</script>
+
+</body>
+</html>
