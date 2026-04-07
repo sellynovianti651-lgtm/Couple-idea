@@ -6,8 +6,6 @@
 <title>Couple Goals</title>
 
 <style>
-
-/* BASE */
 body{
 margin:0;
 font-family:'Poppins', sans-serif;
@@ -16,7 +14,6 @@ color:#333;
 scroll-behavior:smooth;
 }
 
-/* NAV */
 nav{
 display:flex;
 justify-content:space-between;
@@ -24,160 +21,38 @@ padding:20px 50px;
 border-bottom:1px solid #eee;
 }
 
-nav h2{
-color:#c9184a;
-}
+nav h2{color:#c9184a;}
+nav a{margin-left:20px;text-decoration:none;color:#555;}
 
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#555;
-}
+.hero{text-align:center;padding:120px 20px;background:linear-gradient(to bottom,#fff0f3,#ffffff);}
+section{padding:70px 50px;text-align:center;}
+h2{color:#c9184a;}
 
-/* HERO */
-.hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(to bottom,#fff0f3,#ffffff);
-}
+.service-btns{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
+.service-btns button{padding:10px 20px;border-radius:20px;border:none;background:#c9184a;color:white;cursor:pointer;}
 
-/* SECTION */
-section{
-padding:70px 50px;
-text-align:center;
-}
+.grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:30px;opacity:0;transition:0.5s;}
+.grid.show{opacity:1;}
 
-h2{
-color:#c9184a;
-}
+.card{width:230px;border-radius:15px;overflow:hidden;position:relative;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s;}
+.card:hover{transform:translateY(-8px);}
+.card img{width:100%;height:180px;object-fit:cover;}
 
-/* BUTTON */
-.service-btns{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
+.overlay{position:absolute;bottom:0;width:100%;padding:10px;background:rgba(0,0,0,0.4);color:white;}
 
-.service-btns button{
-padding:10px 20px;
-border-radius:20px;
-border:none;
-background:#c9184a;
-color:white;
-cursor:pointer;
-}
+.quiz{max-width:400px;margin:auto;background:white;padding:25px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.08);}
 
-/* GRID */
-.grid{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:30px;
-opacity:0;
-transition:0.5s;
-}
+input,select{width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1px solid #ddd;}
 
-.grid.show{
-opacity:1;
-}
+.main-btn{background:#c9184a;color:white;padding:12px;border:none;border-radius:20px;cursor:pointer;width:100%;}
+.result{margin-top:15px;font-weight:bold;color:#c9184a;white-space:pre-line;}
 
-/* CARD */
-.card{
-width:230px;
-border-radius:15px;
-overflow:hidden;
-position:relative;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-transition:0.3s;
-}
+.wa-btn{display:none;margin-top:15px;background:#25D366;padding:12px;border-radius:25px;color:white;text-decoration:none;}
 
-.card:hover{
-transform:translateY(-8px);
-}
+footer{background:#c9184a;color:white;text-align:center;padding:20px;}
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-/* OVERLAY */
-.overlay{
-position:absolute;
-bottom:0;
-width:100%;
-padding:10px;
-background:rgba(0,0,0,0.4);
-color:white;
-}
-
-/* QUIZ */
-.quiz{
-max-width:400px;
-margin:auto;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-select{
-width:100%;
-padding:12px;
-margin-bottom:12px;
-border-radius:10px;
-border:1px solid #ddd;
-}
-
-.main-btn{
-background:#c9184a;
-color:white;
-padding:12px;
-border:none;
-border-radius:20px;
-cursor:pointer;
-width:100%;
-}
-
-.result{
-margin-top:15px;
-font-weight:bold;
-color:#c9184a;
-}
-
-/* WA */
-.wa-btn{
-display:none;
-margin-top:15px;
-background:#25D366;
-padding:12px;
-border-radius:25px;
-color:white;
-text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-background:#c9184a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-/* SCROLL ANIMATION */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 1s cubic-bezier(0.25,1,0.5,1);
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
+.reveal{opacity:0;transform:translateY(40px);transition:all 1s;}
+.reveal.active{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
@@ -192,54 +67,33 @@ transform:translateY(0);
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero reveal">
 <h1>Never Run Out of Ideas for Your Special Moments</h1>
-
-<p>
-Stop guessing what your partner wants.  
-We help you create meaningful, personalized experiences based on your partner’s preferences, your budget, and your special day.
-</p>
-
-<p style="margin-top:10px; font-weight:500; color:#c9184a;">
-Because every relationship deserves effort, not confusion.
-</p>
+<p>We create personalized date ideas based on your partner, budget, and special day.</p>
 </section>
 
-<!-- ABOUT -->
 <section class="reveal">
 <h2>Why Choose Couple Goals?</h2>
-
-<p>
-We don’t just give ideas — we create experiences tailored to your relationship.
-</p>
-
 <ul style="max-width:600px;margin:auto;text-align:left;">
-<li>✔ Personalized based on your partner</li>
-<li>✔ Save time & avoid overthinking</li>
-<li>✔ Ideas adjusted to your budget</li>
+<li>✔ Personalized ideas</li>
+<li>✔ Save time</li>
+<li>✔ Budget friendly</li>
 <li>✔ Perfect for special moments</li>
 </ul>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="reveal">
 <h2>Our Services</h2>
-
 <div class="service-btns">
 <button onclick="show('date')">Date Ideas</button>
 <button onclick="show('gift')">Gift Ideas</button>
 <button onclick="show('surprise')">Surprise Ideas</button>
 </div>
-
 <div class="grid" id="content"></div>
-
 </section>
 
-<!-- QUIZ -->
 <section id="quiz" class="reveal">
 <h2>Find Your Perfect Date</h2>
-
 <div class="quiz">
 
 <input type="text" id="name" placeholder="Your Name">
@@ -273,13 +127,9 @@ We don’t just give ideas — we create experiences tailored to your relationsh
 <button class="main-btn" onclick="generate()">Get Recommendation</button>
 
 <div class="result" id="result"></div>
-
-<a id="waLink" class="wa-btn" target="_blank">
-Consult via WhatsApp
-</a>
+<a id="waLink" class="wa-btn" target="_blank">Consult via WhatsApp</a>
 
 </div>
-
 </section>
 
 <footer>
@@ -288,201 +138,130 @@ Consult via WhatsApp
 
 <script>
 
-/* SERVICE SWITCH */
 function show(type){
-
 let content=document.getElementById("content");
-content.classList.remove("show");
-
-setTimeout(()=>{
 
 if(type=="date"){
 content.innerHTML=`
-<div class="card reveal">
+<div class="card">
 <img src="picnicdate.jpeg">
 <div class="overlay">Picnic Date</div>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <img src="beachdate.jpeg">
 <div class="overlay">Beach Date</div>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <img src="romanticdinner.jpeg">
 <div class="overlay">Romantic Dinner</div>
 </div>
+
 `;
 }
 
 if(type=="gift"){
-content.innerHTML=`
-<div class="card reveal">
-<img src="scrapbookorscarpframe.jpg">
+content.innerHTML = `
+
+<div class="card">
+<img src="scrapbookorscrapframe.jpg">
 <div class="overlay">Scrapbook</div>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <img src="watch.jpg">
 <div class="overlay">Watch</div>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <img src="jewelry.jpg">
 <div class="overlay">Jewelry</div>
 </div>
+
 `;
 }
-
 if(type=="surprise"){
-content.innerHTML=`
-<div class="card reveal">
+content.innerHTML = `
+
+<div class="card">
 <img src="scavengerhunt.jpg">
 <div class="overlay">Scavenger Hunt</div>
 </div>
 
-<div class="card reveal">
-<img src="stargazingtrip.jpg">
+<div class="card">
+<img src="stargazing.jpg">
 <div class="overlay">Stargazing Trip</div>
 </div>
 
-<div class="card reveal">
+<div class="card">
 <img src="recreatefirstdate.jpg">
 <div class="overlay">Recreate First Date</div>
 </div>
+
 `;
 }
 
 content.classList.add("show");
-
-reveal(); // trigger animation
-
-},200);
 }
 
-/* QUIZ + WA */
 function generate(){
+let name=document.getElementById("name").value;
+let partner=document.getElementById("partner").value;
+let domisili=document.getElementById("domisili").value;
+let occasion=document.getElementById("occasion").value;
+let hobby=document.getElementById("hobby").value;
+let budget=document.getElementById("budget").value;
 
-let name = document.getElementById("name").value;
-let partner = document.getElementById("partner").value;
-let domisili = document.getElementById("domisili").value;
-let occasion = document.getElementById("occasion").value;
-let hobby = document.getElementById("hobby").value;
-let budget = document.getElementById("budget").value;
+if(name==""||partner==""){
+alert("Isi nama dulu ya!");
+return;
+}
 
-let idea = "";
+let idea="";
 
-// 🔥 <100k
 if(budget=="<100k"){
-idea =
-"• Photobooth Date 📸\n" +
-"• Coffee Shop Date ☕\n" +
-"• Movie Date 🎬\n" +
-"• Arcade / Timezone 🎮";
+idea="• Coffee Date ☕\n• Movie Date 🎬\n";
 }
-
-// 🔥 100-300k
 else if(budget=="100k - 300k"){
-
-idea = "";
-
-if(domisili=="Singkawang"){
-idea += "• Beach Sunset Date 🌅\n";
+idea="• Picnic Date 🌿\n• Romantic Dinner 🍝\n";
 }
-
-if(domisili=="Pontianak"){
-idea += "• Couple Workshop 🍰\n";
-}
-
-idea +=
-"• Simple Romantic Dinner 🍝\n" +
-"• Picnic Date 🌿";
-}
-
-// 🔥 >300k
 else{
-idea =
-"• Fine Dining Dinner 🍷\n" +
-"• Staycation 🏨\n" +
-"• Stargazing Trip 🌌";
+idea="• Staycation 🏨\n• Fine Dining 🍷\n";
 }
 
-// RESULT
-document.getElementById("result").innerText =
-"Recommended Ideas:\n" + idea;
+if(hobby=="Food Lover") idea+="• Culinary Tour 🍜\n";
+if(hobby=="Adventure") idea+="• Outdoor Date 🌄\n";
+if(hobby=="Gaming") idea+="• Arcade Date 🎮\n";
+if(hobby=="Chill & Relax") idea+="• Netflix Date 🛋️\n";
 
-// WA MESSAGE
-let message =
-"Halo Couple Goals ❤️\n\n" +
+if(domisili=="Singkawang") idea+="• Beach Date 🌊\n";
+if(domisili=="Pontianak") idea+="• Cafe Hopping ☕\n";
 
-"Saya "+name+" ingin konsultasi.\n" +
-"Pasangan saya: "+partner+"\n\n" +
+if(occasion=="Birthday") idea+="• Surprise Party 🎉\n";
+if(occasion=="Anniversary") idea+="• Romantic Setup 💕\n";
 
-"Domisili: "+domisili+"\n" +
-"Occasion: "+occasion+"\n" +
-"Hobby: "+hobby+"\n" +
-"Budget: "+budget+"\n\n" +
+let resultText="Recommended Ideas:\n"+idea;
+document.getElementById("result").innerText=resultText;
 
-"Ide yang saya minati:\n" +
-idea + "\n\n" +
+let message=`Halo Couple Goals ❤️\n\nSaya ${name} ingin konsultasi.\nPasangan saya: ${partner}\n\nDomisili: ${domisili}\nOccasion: ${occasion}\nHobby: ${hobby}\nBudget: ${budget}\n\nIde:\n${idea}`;
 
-"Saya ingin rekomendasi yang lebih personal.\n\n" +
-"Terima kasih 😊";
-
-let phone="628xxxxxxxxxx";
-
-let link="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+let link="https://wa.me/6289524070718?text="+encodeURIComponent(message);
 
 let wa=document.getElementById("waLink");
 wa.href=link;
 wa.style.display="block";
-
-document.getElementById("result").innerText =
-"Recommended Ideas:\n" + idea;
-
-let message =
-"Halo Couple Goals \n\n" +
-"Saya tertarik menggunakan layanan Couple Goals.\n\n" +
-
-"Berikut preferensi saya:\n" +
-"• Budget: "+budget+"\n\n" +
-
-"Saya tertarik dengan beberapa ide berikut:\n" +
-idea + "\n\n" +
-
-"Saya ingin mendapatkan rekomendasi yang lebih personal dan sesuai dengan pasangan saya.\n\n" +
-
-"Terima kasih";
-
-let phone="6289524070718";
-
-let link="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
-
-let wa=document.getElementById("waLink");
-wa.href=link;
-wa.style.display="block";
-
 }
 
-/* SCROLL ANIMATION */
-window.addEventListener("scroll", reveal);
-
-function reveal(){
-let reveals=document.querySelectorAll(".reveal");
-
-for(let i=0;i<reveals.length;i++){
-
-let windowHeight=window.innerHeight;
-let elementTop=reveals[i].getBoundingClientRect().top;
-let elementVisible=100;
-
-if(elementTop < windowHeight - elementVisible){
-reveals[i].classList.add("active");
-}
-}
-}
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){el.classList.add("active");}
+});
+});
 
 </script>
 
 </body>
 </html>
+
