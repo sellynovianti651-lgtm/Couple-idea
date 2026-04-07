@@ -193,17 +193,33 @@ transform:translateY(0);
 </nav>
 
 <!-- HERO -->
-<div class="hero reveal">
-<h1>Couple Goals</h1>
-<p>Crafting meaningful moments, effortlessly.</p>
-</div>
+<section class="hero reveal">
+<h1>Never Run Out of Ideas for Your Special Moments</h1>
+
+<p>
+Stop guessing what your partner wants.  
+We help you create meaningful, personalized experiences based on your partner’s preferences, your budget, and your special day.
+</p>
+
+<p style="margin-top:10px; font-weight:500; color:#c9184a;">
+Because every relationship deserves effort, not confusion.
+</p>
+</section>
 
 <!-- ABOUT -->
-<section id="about" class="reveal">
-<h2>About Us</h2>
+<section class="reveal">
+<h2>Why Choose Couple Goals?</h2>
+
 <p>
-Couple Goals helps couples create unforgettable moments through curated ideas, thoughtful gifts, and meaningful surprises.
+We don’t just give ideas — we create experiences tailored to your relationship.
 </p>
+
+<ul style="max-width:600px;margin:auto;text-align:left;">
+<li>✔ Personalized based on your partner</li>
+<li>✔ Save time & avoid overthinking</li>
+<li>✔ Ideas adjusted to your budget</li>
+<li>✔ Perfect for special moments</li>
+</ul>
 </section>
 
 <!-- SERVICES -->
@@ -226,9 +242,32 @@ Couple Goals helps couples create unforgettable moments through curated ideas, t
 
 <div class="quiz">
 
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="partner" placeholder="Partner Name">
+
+<select id="domisili">
+<option>Pontianak</option>
+<option>Singkawang</option>
+</select>
+
+<select id="occasion">
+<option>Valentine</option>
+<option>Anniversary</option>
+<option>Birthday</option>
+<option>Casual Date</option>
+</select>
+
+<select id="hobby">
+<option>Food Lover</option>
+<option>Adventure</option>
+<option>Gaming</option>
+<option>Chill & Relax</option>
+</select>
+
 <select id="budget">
-<option>Rp100k - Rp300k</option>
-<option>> Rp300k</option>
+<option><100k</option>
+<option>100k - 300k</option>
+<option>>300k</option>
 </select>
 
 <button class="main-btn" onclick="generate()">Get Recommendation</button>
@@ -324,26 +363,79 @@ reveal(); // trigger animation
 /* QUIZ + WA */
 function generate(){
 
-let budget=document.getElementById("budget").value;
+let name = document.getElementById("name").value;
+let partner = document.getElementById("partner").value;
+let domisili = document.getElementById("domisili").value;
+let occasion = document.getElementById("occasion").value;
+let hobby = document.getElementById("hobby").value;
+let budget = document.getElementById("budget").value;
 
-let idea="";
+let idea = "";
 
-if(budget=="Rp100k - Rp300k"){
-idea = 
-"• Picnic Date\n" +
-"• Coffee Date\n" +
-"• Movie Night\n" +
-"• Arcade Date\n" +
-"• Simple Romantic Dinner";
+// 🔥 <100k
+if(budget=="<100k"){
+idea =
+"• Photobooth Date 📸\n" +
+"• Coffee Shop Date ☕\n" +
+"• Movie Date 🎬\n" +
+"• Arcade / Timezone 🎮";
 }
+
+// 🔥 100-300k
+else if(budget=="100k - 300k"){
+
+idea = "";
+
+if(domisili=="Singkawang"){
+idea += "• Beach Sunset Date 🌅\n";
+}
+
+if(domisili=="Pontianak"){
+idea += "• Couple Workshop 🍰\n";
+}
+
+idea +=
+"• Simple Romantic Dinner 🍝\n" +
+"• Picnic Date 🌿";
+}
+
+// 🔥 >300k
 else{
-idea = 
-"• Fine Dining Dinner\n" +
-"• Beach Sunset Date\n" +
-"• Staycation\n" +
-"• Stargazing Trip\n" +
-"• Couple Workshop";
+idea =
+"• Fine Dining Dinner 🍷\n" +
+"• Staycation 🏨\n" +
+"• Stargazing Trip 🌌";
 }
+
+// RESULT
+document.getElementById("result").innerText =
+"Recommended Ideas:\n" + idea;
+
+// WA MESSAGE
+let message =
+"Halo Couple Goals ❤️\n\n" +
+
+"Saya "+name+" ingin konsultasi.\n" +
+"Pasangan saya: "+partner+"\n\n" +
+
+"Domisili: "+domisili+"\n" +
+"Occasion: "+occasion+"\n" +
+"Hobby: "+hobby+"\n" +
+"Budget: "+budget+"\n\n" +
+
+"Ide yang saya minati:\n" +
+idea + "\n\n" +
+
+"Saya ingin rekomendasi yang lebih personal.\n\n" +
+"Terima kasih 😊";
+
+let phone="628xxxxxxxxxx";
+
+let link="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+
+let wa=document.getElementById("waLink");
+wa.href=link;
+wa.style.display="block";
 
 document.getElementById("result").innerText =
 "Recommended Ideas:\n" + idea;
